@@ -20,3 +20,5 @@ spk_df_clean = spk_df.drop(*columns_to_drop)
 print("Data Frame after cleaning")
 spk_df_clean.printSchema()
 
+spk_df_clean.groupby("cp", "device_portal_format").count().show()
+
