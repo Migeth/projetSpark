@@ -57,6 +57,29 @@ for cols in str_cols:
   data= data.withColumn(cols, trim(data[cols]))
 
 
+#supprimer les colonnes avec les valeurs nulles a partir d'un certain seuil
+
+data.select([count(when(isnan(c) | col(c).isNull(),c  )).alias(c) for c in data.columns if c not in {'date_recorded', 'public_meeting','permit' } ]).show()
+
+agg_row= data.select([(count(when(isnan(c) | col(c).isNull(),c  ))/data.count()).alias(c) for c in data.columns if c not in {'date_recorded', 'public_meeting','permit' } ]).collect()
+#convertir le résultat dans un dictionnaire pour une itération facile
+
+agg_dict_list =[row.asDict() for row in agg_row]
+
+agg_dict= agg_dict_list[0]
+
+#on itére sur ce dictionnaire et stocke les noms de colonnes, qui ont nombre moyen de valeurs nulles plus qu'un seuil donné
+
+#on a choisit 0.4 par rapport aux 40%
+
+col_null = list({i for i in agg_dict if agg_dict[i] > 0.4 })
+
+print(agg_dict)
+
+print(col_null)
+
+data = data.drop(*col_null)
+
 
 
 
