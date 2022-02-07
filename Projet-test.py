@@ -80,6 +80,8 @@ print(col_null)
 
 data = data.drop(*col_null)
 
+##
+
 
 
 
