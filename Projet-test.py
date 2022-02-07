@@ -39,3 +39,5 @@ color_status = {'functional': 'green', 'non functional': 'red', 'functional need
 
 cols = ['status_group', 'payment_type', 'longitude', 'latitude', 'gps_height']
 df= data.select(cols).toPandas()
+
+#Visuatlition_test
