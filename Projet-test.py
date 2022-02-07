@@ -7,6 +7,7 @@ import seaborn as sns
 #import wget
 
 
+
 #tapper ces commandes sous le terminal de pycharm pour telecharger directement les fichiers a partir de leur URL
 #-------  wget https://s3.amazonaws.com/drivendata/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv -O features.csv
 #le 2eme data set contient les étiquettes décrivant l'état des puits
@@ -32,12 +33,33 @@ data.printSchema()
 #Affichage des 10 premieres lignes du dataframe
 data.show(n=10)
 
-#visualisation
-color_status = {'functional': 'green', 'non functional': 'red', 'functional needs repair': 'blue'}
+# La fonction withColumn prend deux arguments -le nom de la nouvelle colonne et l'expression de la nouvelle colonne
 
-#creer un data
+data = data.withColumn('region_code', col('region_code').cast(StringType())).withColumn('district_code', col('district_code').cast(StringType()))
+data.printSchema()
 
-cols = ['status_group', 'payment_type', 'longitude', 'latitude', 'gps_height']
-df= data.select(cols).toPandas()
 
-#Visuatlition_test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
