@@ -102,3 +102,5 @@ data = data.drop(*col_null)
 
 
 
+
+
