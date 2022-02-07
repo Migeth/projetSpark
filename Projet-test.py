@@ -80,16 +80,22 @@ print(col_null)
 
 data = data.drop(*col_null)
 
-##
+##groupping et aggregation
+#count utilise l'ordre asc
+data.groupBy('recorded_by').count().show()
+#comme on peut remarquer cette colonne contient seulement "GeoData Consultants Ltd" dupliqué dans tout les lignes
 
+#on essaye avec une autre colonne
+data.groupBy('water_quality').count().orderBy('count', ascending= False).show()
 
+#on déduit que la colonne recroded_by n'est pas informative donc elle peut etre supprimé
+data = data.drop('recorded_by')
 
-
-
-
-
-
-
+# creation d'un pivot_table grouped by statut des puits dans chaque region et
+# calculer la somme de la quantité totale d'eau dans les puits
+#pivot_table() évite la répétition des données de la DataFrame .
+# Elle résume les données et applique différentes fonctions d'agrégation sur les données.
+data.groupBy('status_group').pivot('region').sum('amount_tsh').show()
 
 
 
