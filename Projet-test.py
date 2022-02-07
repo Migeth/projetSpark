@@ -38,7 +38,17 @@ data.show(n=10)
 data = data.withColumn('region_code', col('region_code').cast(StringType())).withColumn('district_code', col('district_code').cast(StringType()))
 data.printSchema()
 
+#supprimer les doublons
+data=data.dropDuplicates(["id"])
+data.count()
 
+#en utilisant la fonction trim(), on peut supprimer les espaces blancs dans chaque de ces colonnes.
+
+str_cols = [item[0] for item in data.dtypes if item[1].startswith('string')]
+
+for cols in str_cols:
+
+  data= data.withColumn(cols, trim(data[cols]))
 
 
 
