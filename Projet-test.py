@@ -1,11 +1,10 @@
+import folium
 from pyspark.sql import SparkSession, Window
 from pyspark.sql.functions import isnan, when, count, col, lit, trim, avg, ceil
 from pyspark.sql.types import StringType
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-
-# import wget
 
 
 # tapper ces commandes sous le terminal de pycharm pour telecharger directement les fichiers a partir de leur URL
@@ -153,9 +152,9 @@ plt.xticks(rotation=45)
 fig.savefig('result_images/show_nb_well_per_payment_type.png')
 
 # la latitude et la longitude de chaque puits sous forme de nuage de points
-#fig1, ax1 = plt.subplots(12, 8)
-#sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1, palette=color_status)
-#fig1.savefig('result_images/show_lay_long.png')
+fig1, ax1 = plt.subplots(12, 8)
+sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1, palette=color_status)
+fig1.savefig('result_images/show_lay_long.png')
 
 # histogramme avec des estimations de densité de noyau de la colonne GPS_height
 # séparer le datframe en trois sous-ensembles, un pour chaque type de statut
@@ -166,8 +165,33 @@ row_repair = (df['status_group'] == 'functional needs repair')
 # distplot pour chaque subset utilisant la colonne GPS_height et le meme code de couleur
 col = 'gps_height'
 fig2, ax2 = plt.subplots(12, 8)
-sns.displot(df[col][row_funtional], color='green', label='functional', ax=ax2)
-sns.displot(df[col][row_non_funtional], color='red', label='non functional', ax=ax2)
-sns.displot(df[col][row_repair], color='blue', label='functional needs repair', ax=ax2)
+sns.histplot(df[row_funtional][col], color='green', label='functional', ax=ax2)
+sns.histplot(df[row_non_funtional][col], color='red', label='non functional', ax=ax2)
+sns.histplot(df[row_repair][col], color='blue', label='functional needs repair', ax=ax2)
 fig2.savefig('result_images/show_gps_height.png')
 
+# define the world map centered around with a higher zoom level
+map_draw = folium.Map(location=[-3.852983, 36.756231], tiles='Stamen Toner', zoom_start=11.5)
+
+# loop through the 100 crimes and add each to the incidents feature group
+for index, row in df[df['longitude'].notnull()].iterrows():
+    # element raduis
+    elem_radius = round(((row['gps_height'] * 50) / max(df['gps_height'])), 2)
+
+    # element opacity
+    elem_opac = round((elem_radius / 50), 1)
+
+    lat = row['latitude']
+    longi = row['longitude']
+    folium.CircleMarker(
+        location=[lat, longi],
+        color='#3186cc',
+        fill=True,
+        radius=elem_radius,
+        fill_color='#3186cc',
+        fill_opacity=elem_opac,
+        popup="Status Group: " + str(row['status_group']) + "\nGPS Height: " + str(row['gps_height'])
+    ).add_to(map_draw)
+
+# display world map
+map_draw.save("map_draw.html")
