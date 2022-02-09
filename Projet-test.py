@@ -1,6 +1,6 @@
 import folium
 from pyspark.sql import SparkSession, Window
-from pyspark.sql.functions import isnan, when, count, col, lit, trim, avg, ceil
+from pyspark.sql.functions import isnan, when, count, col, lit, trim, avg, ceil, row_number
 from pyspark.sql.types import StringType
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -189,35 +189,8 @@ cons_puit_per_year_df = cons_puit_per_year_str.toPandas()
 cons_puit_per_year_df.plot(x="construction_year", y="nb_construction", figsize=(15, 10))
 plt.savefig('result_images/well_contruct_over_year.png')
 
-""" Define the world map centered around Tanzania with a zoom level """
-
-map_draw = folium.Map(location=[-3.852983, 36.756231], tiles='Stamen Toner', zoom_start=11.5)
-
-# loop through the 100 crimes and add each to the incidents feature group
-for index, row in df[df['longitude'].notnull()].iterrows():
-    # element raduis
-    elem_radius = round(((row['gps_height'] * 50) / max(df['gps_height'])), 2)
-
-    # element opacity
-    elem_opac = round((elem_radius / 50), 1)
-
-    lat = row['latitude']
-    longi = row['longitude']
-    folium.CircleMarker(
-        location=[lat, longi],
-        color='#3186cc',
-        fill=True,
-        radius=elem_radius,
-        fill_color='#3186cc',
-        fill_opacity=elem_opac,
-        popup="Status Group: " + str(row['status_group']) + "\nGPS Height: " + str(row['gps_height'])
-    ).add_to(map_draw)
-
-# display world map
-map_draw.save("map_draw.html")
 
 """" Nombre total de puits par region """
-
 data_region_puit = data.groupBy("region").agg(count("status_group").alias('nb_puits'))
 data_region_puit.show()
 
@@ -225,12 +198,59 @@ data_region_puit.show()
 data_region_pop = data.groupBy("region").agg(sum("population").alias('population_total'))
 data_region_pop.show()
 
+""" Dataframe to get a geographic location of each region """
+data_region = data.select("region", "latitude", "longitude")
+w2 = Window.partitionBy("region").orderBy(col("latitude"), col('longitude'))
+data_reg_lat_long = data_region.withColumn("row", row_number().over(w2)).filter(col("row") == 1).drop("row")
+data_reg_lat_long.show()
+
 """ Jointure de la dataframe du nombre total de population par région et celle du nombre total de puits par région 
 Affichage du nombre total de puits et de populations par région """
-
-data_reg_pop_puit = data_region_pop.join(data_region_puit, on="region")
+data_reg_pop_puit = data_region_pop.join(data_region_puit, on="region").join(data_reg_lat_long, on="region")
 data_reg_pop_puit.show()
 data_reg_pop_puit_df = data_reg_pop_puit.toPandas()
 
 data_reg_pop_puit_df.plot.bar(x='region', y=["population_total", "nb_puits"], rot=90, figsize=(15, 50))
 plt.savefig('result_images/population_well_total_per_region.png')
+
+# define the world map centered around with a higher zoom level
+map_draw1 = folium.Map(location=[data_reg_pop_puit_df['latitude'].mean(), data_reg_pop_puit_df['longitude'].mean()],
+                       tiles='Stamen Toner', zoom_start=7)
+
+# loop through the 100 crimes and add each to the incidents feature group
+for index, row in data_reg_pop_puit_df[data_reg_pop_puit_df['longitude'].notnull()].iterrows():
+    # Population raduis
+    pop_radius = round(((row['population_total'] * 50) / data_reg_pop_puit_df['population_total'].max()), 2)
+    # Population opacity
+    pop_opac = 0.5
+
+    # Well raduis
+    well_radius = round(((row['nb_puits'] * 50) / data_reg_pop_puit_df['nb_puits'].max()), 2)
+    # Well opacity
+    well_opac = 0.5
+
+    lat = row['latitude']
+    longi = row['longitude']
+
+    # Add wells point
+    folium.CircleMarker(
+        location=[lat, longi],
+        color='#F50F05',
+        fill=True,
+        radius=well_radius,
+        fill_color='#FCE3E8',
+        fill_opacity=well_opac,
+        popup="Nombre de puits: " + str(row['nb_puits']) + "\nRegion: " + str(row['region'])
+    ).add_to(map_draw1)
+    # Add population point
+    folium.CircleMarker(
+        location=[lat, longi],
+        color='#3186cc',
+        fill=True,
+        radius=pop_radius,
+        fill_color='#3186cc',
+        fill_opacity=pop_opac,
+        popup="Population: " + str(row['population_total']) + "\nRegion: " + str(row['region'])
+    ).add_to(map_draw1)
+
+map_draw1.save("map_pop_well_per_region.html")
