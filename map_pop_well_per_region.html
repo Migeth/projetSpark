@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_a06b5d82115349b0bdd405971eda60e8 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_a06b5d82115349b0bdd405971eda60e8" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_a06b5d82115349b0bdd405971eda60e8 = L.map(
+                                  'map_a06b5d82115349b0bdd405971eda60e8',
+                                  {center: [-7.05961700904762,35.33226015190476],
+                                  zoom: 7,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_376a02507c0f4180b511dc5e47ded472 = L.tileLayer(
+                'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+        
+    
+            var circle_marker_d059e6a3759b427cbdc79a7bb6b77dfa = L.circleMarker(
+                [-8.99032099,32.09569724],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17.08,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_8e5952a661c64ac78d2fb48d8e29b121 = L.popup({maxWidth: '300'});
+
+            
+                var html_653ced8c549a49dd8b7fa304951908b1 = $('<div id="html_653ced8c549a49dd8b7fa304951908b1" style="width: 100.0%; height: 100.0%;">Nombre de puits: 1808 Region: Rukwa</div>')[0];
+                popup_8e5952a661c64ac78d2fb48d8e29b121.setContent(html_653ced8c549a49dd8b7fa304951908b1);
+            
+
+            circle_marker_d059e6a3759b427cbdc79a7bb6b77dfa.bindPopup(popup_8e5952a661c64ac78d2fb48d8e29b121);
+
+            
+        
+    
+            var circle_marker_788560e0bc704413828a8b13aaf73b3f = L.circleMarker(
+                [-8.99032099,32.09569724],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 23.47,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_0cedd8a251d34b6fb86cf5fbf499877e = L.popup({maxWidth: '300'});
+
+            
+                var html_715b16a156f34be7bfc1b5a65ff5b601 = $('<div id="html_715b16a156f34be7bfc1b5a65ff5b601" style="width: 100.0%; height: 100.0%;">Population: 661359 Region: Rukwa</div>')[0];
+                popup_0cedd8a251d34b6fb86cf5fbf499877e.setContent(html_715b16a156f34be7bfc1b5a65ff5b601);
+            
+
+            circle_marker_788560e0bc704413828a8b13aaf73b3f.bindPopup(popup_0cedd8a251d34b6fb86cf5fbf499877e);
+
+            
+        
+    
+            var circle_marker_3b1c19bbb6524f7996dd3af94b3dfc69 = L.circleMarker(
+                [-8.47755516,38.54411963],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 24.89,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_0e7a12add36c418d991c477913bd9344 = L.popup({maxWidth: '300'});
+
+            
+                var html_0c0f0c3bed694533a397ce80a5c7ffdd = $('<div id="html_0c0f0c3bed694533a397ce80a5c7ffdd" style="width: 100.0%; height: 100.0%;">Nombre de puits: 2635 Region: Pwani</div>')[0];
+                popup_0e7a12add36c418d991c477913bd9344.setContent(html_0c0f0c3bed694533a397ce80a5c7ffdd);
+            
+
+            circle_marker_3b1c19bbb6524f7996dd3af94b3dfc69.bindPopup(popup_0e7a12add36c418d991c477913bd9344);
+
+            
+        
+    
+            var circle_marker_0e68ef11f7e24c7b90caf2e1f7f8eb6d = L.circleMarker(
+                [-8.47755516,38.54411963],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 32.69,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_759d98b7a7dd4314a2be7db03fff7124 = L.popup({maxWidth: '300'});
+
+            
+                var html_573b07c0a28a43e4912f218b42f5197c = $('<div id="html_573b07c0a28a43e4912f218b42f5197c" style="width: 100.0%; height: 100.0%;">Population: 920896 Region: Pwani</div>')[0];
+                popup_759d98b7a7dd4314a2be7db03fff7124.setContent(html_573b07c0a28a43e4912f218b42f5197c);
+            
+
+            circle_marker_0e68ef11f7e24c7b90caf2e1f7f8eb6d.bindPopup(popup_759d98b7a7dd4314a2be7db03fff7124);
+
+            
+        
+    
+            var circle_marker_ea974a58c0144961ba9ff2f3c28b011d = L.circleMarker(
+                [-9.19142362,35.9985833],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 37.84,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_a9d34f100c004b9094189ddd7062140b = L.popup({maxWidth: '300'});
+
+            
+                var html_d0406ab56bad4839b6d021355d96a562 = $('<div id="html_d0406ab56bad4839b6d021355d96a562" style="width: 100.0%; height: 100.0%;">Nombre de puits: 4006 Region: Morogoro</div>')[0];
+                popup_a9d34f100c004b9094189ddd7062140b.setContent(html_d0406ab56bad4839b6d021355d96a562);
+            
+
+            circle_marker_ea974a58c0144961ba9ff2f3c28b011d.bindPopup(popup_a9d34f100c004b9094189ddd7062140b);
+
+            
+        
+    
+            var circle_marker_39ac9e077b564a44b349356ef76e28bd = L.circleMarker(
+                [-9.19142362,35.9985833],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 37.63,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_c2ecd1459ab44313aec788c567bd360e = L.popup({maxWidth: '300'});
+
+            
+                var html_47c25eae8ef54f4e9eab99a104e1e7c8 = $('<div id="html_47c25eae8ef54f4e9eab99a104e1e7c8" style="width: 100.0%; height: 100.0%;">Population: 1060090 Region: Morogoro</div>')[0];
+                popup_c2ecd1459ab44313aec788c567bd360e.setContent(html_47c25eae8ef54f4e9eab99a104e1e7c8);
+            
+
+            circle_marker_39ac9e077b564a44b349356ef76e28bd.bindPopup(popup_c2ecd1459ab44313aec788c567bd360e);
+
+            
+        
+    
+            var circle_marker_8ce3afd801294d6f9cff213381d9df49 = L.circleMarker(
+                [-2.4426193,34.81028576],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 18.6,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_84d30c0d714a478f942a350ec54e6c43 = L.popup({maxWidth: '300'});
+
+            
+                var html_77ace8f4629c4074a5f4c5b5a242bb1b = $('<div id="html_77ace8f4629c4074a5f4c5b5a242bb1b" style="width: 100.0%; height: 100.0%;">Nombre de puits: 1969 Region: Mara</div>')[0];
+                popup_84d30c0d714a478f942a350ec54e6c43.setContent(html_77ace8f4629c4074a5f4c5b5a242bb1b);
+            
+
+            circle_marker_8ce3afd801294d6f9cff213381d9df49.bindPopup(popup_84d30c0d714a478f942a350ec54e6c43);
+
+            
+        
+    
+            var circle_marker_5f40720c1f664e09bfe76fc0bd3cce45 = L.circleMarker(
+                [-2.4426193,34.81028576],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 37.66,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_7ec037c735864f2b9a0047b0044a1928 = L.popup({maxWidth: '300'});
+
+            
+                var html_5c7d2013d9704c309f328c6f639d4de1 = $('<div id="html_5c7d2013d9704c309f328c6f639d4de1" style="width: 100.0%; height: 100.0%;">Population: 1060886 Region: Mara</div>')[0];
+                popup_7ec037c735864f2b9a0047b0044a1928.setContent(html_5c7d2013d9704c309f328c6f639d4de1);
+            
+
+            circle_marker_5f40720c1f664e09bfe76fc0bd3cce45.bindPopup(popup_7ec037c735864f2b9a0047b0044a1928);
+
+            
+        
+    
+            var circle_marker_50cf76a99d354144afa4cfec0fb4563e = L.circleMarker(
+                [-6.94745728,33.52027067],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 19.77,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_7a73425debfc4114a298c15712d66056 = L.popup({maxWidth: '300'});
+
+            
+                var html_5bebbd82682a4337a29c751cb9c8b4ff = $('<div id="html_5bebbd82682a4337a29c751cb9c8b4ff" style="width: 100.0%; height: 100.0%;">Nombre de puits: 2093 Region: Singida</div>')[0];
+                popup_7a73425debfc4114a298c15712d66056.setContent(html_5bebbd82682a4337a29c751cb9c8b4ff);
+            
+
+            circle_marker_50cf76a99d354144afa4cfec0fb4563e.bindPopup(popup_7a73425debfc4114a298c15712d66056);
+
+            
+        
+    
+            var circle_marker_521bbb30134d4c8f83833275ee1bd633 = L.circleMarker(
+                [-6.94745728,33.52027067],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20.74,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_db41840154ee480c8b924abcb918dfa2 = L.popup({maxWidth: '300'});
+
+            
+                var html_e9fc9bdff2d54164b3df2d18e394b295 = $('<div id="html_e9fc9bdff2d54164b3df2d18e394b295" style="width: 100.0%; height: 100.0%;">Population: 584203 Region: Singida</div>')[0];
+                popup_db41840154ee480c8b924abcb918dfa2.setContent(html_e9fc9bdff2d54164b3df2d18e394b295);
+            
+
+            circle_marker_521bbb30134d4c8f83833275ee1bd633.bindPopup(popup_db41840154ee480c8b924abcb918dfa2);
+
+            
+        
+    
+            var circle_marker_72abcde482f24d4ebedb6e5558395e33 = L.circleMarker(
+                [-3.29714898,31.47118963],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 31.32,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_10907744c13f4a9f93ff8f0fe0e24e16 = L.popup({maxWidth: '300'});
+
+            
+                var html_bb8d072172244e6c8e91f88cbc1bc4c7 = $('<div id="html_bb8d072172244e6c8e91f88cbc1bc4c7" style="width: 100.0%; height: 100.0%;">Nombre de puits: 3316 Region: Kagera</div>')[0];
+                popup_10907744c13f4a9f93ff8f0fe0e24e16.setContent(html_bb8d072172244e6c8e91f88cbc1bc4c7);
+            
+
+            circle_marker_72abcde482f24d4ebedb6e5558395e33.bindPopup(popup_10907744c13f4a9f93ff8f0fe0e24e16);
+
+            
+        
+    
+            var circle_marker_6a083a123ad64c099ce2de1b07e85637 = L.circleMarker(
+                [-3.29714898,31.47118963],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 0.0,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_84f54c95ed624b2aac82ff4c5e7acca9 = L.popup({maxWidth: '300'});
+
+            
+                var html_e851e28e0a4c4549a0292a94b9791828 = $('<div id="html_e851e28e0a4c4549a0292a94b9791828" style="width: 100.0%; height: 100.0%;">Population: 0 Region: Kagera</div>')[0];
+                popup_84f54c95ed624b2aac82ff4c5e7acca9.setContent(html_e851e28e0a4c4549a0292a94b9791828);
+            
+
+            circle_marker_6a083a123ad64c099ce2de1b07e85637.bindPopup(popup_84f54c95ed624b2aac82ff4c5e7acca9);
+
+            
+        
+    
+            var circle_marker_81e7168a64ad42b98a3ab73e217180b2 = L.circleMarker(
+                [-7.30048157,36.51640562],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20.79,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_192cfac81a4f4de18586ec8bb7a5b1f4 = L.popup({maxWidth: '300'});
+
+            
+                var html_e12e1ff4c3e141a0859e82570d3b89d4 = $('<div id="html_e12e1ff4c3e141a0859e82570d3b89d4" style="width: 100.0%; height: 100.0%;">Nombre de puits: 2201 Region: Dodoma</div>')[0];
+                popup_192cfac81a4f4de18586ec8bb7a5b1f4.setContent(html_e12e1ff4c3e141a0859e82570d3b89d4);
+            
+
+            circle_marker_81e7168a64ad42b98a3ab73e217180b2.bindPopup(popup_192cfac81a4f4de18586ec8bb7a5b1f4);
+
+            
+        
+    
+            var circle_marker_96725f2af0fd4c5ba368949644f600f0 = L.circleMarker(
+                [-7.30048157,36.51640562],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 0.0,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_24867de0692449de89815ec9566b3b24 = L.popup({maxWidth: '300'});
+
+            
+                var html_24d4db14f33046a2a34a69be4fd8c064 = $('<div id="html_24d4db14f33046a2a34a69be4fd8c064" style="width: 100.0%; height: 100.0%;">Population: 0 Region: Dodoma</div>')[0];
+                popup_24867de0692449de89815ec9566b3b24.setContent(html_24d4db14f33046a2a34a69be4fd8c064);
+            
+
+            circle_marker_96725f2af0fd4c5ba368949644f600f0.bindPopup(popup_24867de0692449de89815ec9566b3b24);
+
+            
+        
+    
+            var circle_marker_72556d15e5764e10970925e7f3f7876c = L.circleMarker(
+                [-4.38194618,32.31007456],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 47.05,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_7722512115f44bf39b48de00b5ef52e6 = L.popup({maxWidth: '300'});
+
+            
+                var html_1ef71142dcf54f99846e9ee169a7b822 = $('<div id="html_1ef71142dcf54f99846e9ee169a7b822" style="width: 100.0%; height: 100.0%;">Nombre de puits: 4982 Region: Shinyanga</div>')[0];
+                popup_7722512115f44bf39b48de00b5ef52e6.setContent(html_1ef71142dcf54f99846e9ee169a7b822);
+            
+
+            circle_marker_72556d15e5764e10970925e7f3f7876c.bindPopup(popup_7722512115f44bf39b48de00b5ef52e6);
+
+            
+        
+    
+            var circle_marker_1414401fcaf34958bf86a3fe95c85b51 = L.circleMarker(
+                [-4.38194618,32.31007456],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 2.49,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_52a74f3365ad4d30942d85072ffd3552 = L.popup({maxWidth: '300'});
+
+            
+                var html_0262225d34134365a4dba578ff11e19d = $('<div id="html_0262225d34134365a4dba578ff11e19d" style="width: 100.0%; height: 100.0%;">Population: 70251 Region: Shinyanga</div>')[0];
+                popup_52a74f3365ad4d30942d85072ffd3552.setContent(html_0262225d34134365a4dba578ff11e19d);
+            
+
+            circle_marker_1414401fcaf34958bf86a3fe95c85b51.bindPopup(popup_52a74f3365ad4d30942d85072ffd3552);
+
+            
+        
+    
+            var circle_marker_1324f01039b047b0a80b1cd7cc628c42 = L.circleMarker(
+                [-6.91683005,33.46735982],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 18.5,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_a5c7dc1ca7594a53a82b031f159cd66b = L.popup({maxWidth: '300'});
+
+            
+                var html_5acd363e449541789693fd1f95bbb86f = $('<div id="html_5acd363e449541789693fd1f95bbb86f" style="width: 100.0%; height: 100.0%;">Nombre de puits: 1959 Region: Tabora</div>')[0];
+                popup_a5c7dc1ca7594a53a82b031f159cd66b.setContent(html_5acd363e449541789693fd1f95bbb86f);
+            
+
+            circle_marker_1324f01039b047b0a80b1cd7cc628c42.bindPopup(popup_a5c7dc1ca7594a53a82b031f159cd66b);
+
+            
+        
+    
+            var circle_marker_c87e3af5f11f4d38a9e8c6175d5f63e3 = L.circleMarker(
+                [-6.91683005,33.46735982],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 0.0,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_9312948f3cf04e189e7f2835211de281 = L.popup({maxWidth: '300'});
+
+            
+                var html_0675c2bab0b449b0ade78c0689c0802d = $('<div id="html_0675c2bab0b449b0ade78c0689c0802d" style="width: 100.0%; height: 100.0%;">Population: 0 Region: Tabora</div>')[0];
+                popup_9312948f3cf04e189e7f2835211de281.setContent(html_0675c2bab0b449b0ade78c0689c0802d);
+            
+
+            circle_marker_c87e3af5f11f4d38a9e8c6175d5f63e3.bindPopup(popup_9312948f3cf04e189e7f2835211de281);
+
+            
+        
+    
+            var circle_marker_95e426abf740466caa1cabe8464f9522 = L.circleMarker(
+                [-10.63998728,38.11158716],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 14.6,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_e384674301fe4a8e90bb89a18e59b249 = L.popup({maxWidth: '300'});
+
+            
+                var html_89b166da2375461cbe9b7eef17bae0f2 = $('<div id="html_89b166da2375461cbe9b7eef17bae0f2" style="width: 100.0%; height: 100.0%;">Nombre de puits: 1546 Region: Lindi</div>')[0];
+                popup_e384674301fe4a8e90bb89a18e59b249.setContent(html_89b166da2375461cbe9b7eef17bae0f2);
+            
+
+            circle_marker_95e426abf740466caa1cabe8464f9522.bindPopup(popup_e384674301fe4a8e90bb89a18e59b249);
+
+            
+        
+    
+            var circle_marker_4fde952b833b4ba4a32fd9444313ce5c = L.circleMarker(
+                [-10.63998728,38.11158716],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20.0,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_707b3f5194924f23930c7bea3bae77f1 = L.popup({maxWidth: '300'});
+
+            
+                var html_4829c4878f164fcf9ac87a49fc3b3d3a = $('<div id="html_4829c4878f164fcf9ac87a49fc3b3d3a" style="width: 100.0%; height: 100.0%;">Population: 563370 Region: Lindi</div>')[0];
+                popup_707b3f5194924f23930c7bea3bae77f1.setContent(html_4829c4878f164fcf9ac87a49fc3b3d3a);
+            
+
+            circle_marker_4fde952b833b4ba4a32fd9444313ce5c.bindPopup(popup_707b3f5194924f23930c7bea3bae77f1);
+
+            
+        
+    
+            var circle_marker_f6bcb6d449404d979273249b47e1e2ad = L.circleMarker(
+                [-3.76660778,36.42121872],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 31.64,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_11604b3c62a64feb86ca4ece469f96cf = L.popup({maxWidth: '300'});
+
+            
+                var html_f7cab5c6d129445c96563f4915fb07ed = $('<div id="html_f7cab5c6d129445c96563f4915fb07ed" style="width: 100.0%; height: 100.0%;">Nombre de puits: 3350 Region: Arusha</div>')[0];
+                popup_11604b3c62a64feb86ca4ece469f96cf.setContent(html_f7cab5c6d129445c96563f4915fb07ed);
+            
+
+            circle_marker_f6bcb6d449404d979273249b47e1e2ad.bindPopup(popup_11604b3c62a64feb86ca4ece469f96cf);
+
+            
+        
+    
+            var circle_marker_580ac522372641b5bfe7df3a02f94655 = L.circleMarker(
+                [-3.76660778,36.42121872],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 31.18,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_028eac4da01e49f09428b0f466db673b = L.popup({maxWidth: '300'});
+
+            
+                var html_474077353f0a4666b7c41c81f0fb27b2 = $('<div id="html_474077353f0a4666b7c41c81f0fb27b2" style="width: 100.0%; height: 100.0%;">Population: 878501 Region: Arusha</div>')[0];
+                popup_028eac4da01e49f09428b0f466db673b.setContent(html_474077353f0a4666b7c41c81f0fb27b2);
+            
+
+            circle_marker_580ac522372641b5bfe7df3a02f94655.bindPopup(popup_028eac4da01e49f09428b0f466db673b);
+
+            
+        
+    
+            var circle_marker_0294c8937ff745f2a0819a2b5442e6fc = L.circleMarker(
+                [-5.95285449,36.87087236],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 14.95,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_de05e29c4af34807b7fccc9c123c2dea = L.popup({maxWidth: '300'});
+
+            
+                var html_b684a99ccbb44c5ba903e90564356005 = $('<div id="html_b684a99ccbb44c5ba903e90564356005" style="width: 100.0%; height: 100.0%;">Nombre de puits: 1583 Region: Manyara</div>')[0];
+                popup_de05e29c4af34807b7fccc9c123c2dea.setContent(html_b684a99ccbb44c5ba903e90564356005);
+            
+
+            circle_marker_0294c8937ff745f2a0819a2b5442e6fc.bindPopup(popup_de05e29c4af34807b7fccc9c123c2dea);
+
+            
+        
+    
+            var circle_marker_351460b79cb84266b8d0cc2d946a1087 = L.circleMarker(
+                [-5.95285449,36.87087236],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17.86,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_cce8299ee2f9439ba0eab8aa87870a3f = L.popup({maxWidth: '300'});
+
+            
+                var html_e51cf11f17bd41b2b3345c20b246c06f = $('<div id="html_e51cf11f17bd41b2b3345c20b246c06f" style="width: 100.0%; height: 100.0%;">Population: 503043 Region: Manyara</div>')[0];
+                popup_cce8299ee2f9439ba0eab8aa87870a3f.setContent(html_e51cf11f17bd41b2b3345c20b246c06f);
+            
+
+            circle_marker_351460b79cb84266b8d0cc2d946a1087.bindPopup(popup_cce8299ee2f9439ba0eab8aa87870a3f);
+
+            
+        
+    
+            var circle_marker_6066c5312c9345228c3d5764f97c330f = L.circleMarker(
+                [-11.64944018,37.35113776],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 24.93,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_83fc50e47e3242e8b76fcb35ed8ec42e = L.popup({maxWidth: '300'});
+
+            
+                var html_8c1972ac225c46b19b4f36c9902b340a = $('<div id="html_8c1972ac225c46b19b4f36c9902b340a" style="width: 100.0%; height: 100.0%;">Nombre de puits: 2640 Region: Ruvuma</div>')[0];
+                popup_83fc50e47e3242e8b76fcb35ed8ec42e.setContent(html_8c1972ac225c46b19b4f36c9902b340a);
+            
+
+            circle_marker_6066c5312c9345228c3d5764f97c330f.bindPopup(popup_83fc50e47e3242e8b76fcb35ed8ec42e);
+
+            
+        
+    
+            var circle_marker_18de57c89c554ac3b4b903e843688284 = L.circleMarker(
+                [-11.64944018,37.35113776],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 18.65,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_46a8b4ac08d841bda2641b6508d0ef98 = L.popup({maxWidth: '300'});
+
+            
+                var html_2a22fb4a2b3b492989b5c708862c74eb = $('<div id="html_2a22fb4a2b3b492989b5c708862c74eb" style="width: 100.0%; height: 100.0%;">Population: 525411 Region: Ruvuma</div>')[0];
+                popup_46a8b4ac08d841bda2641b6508d0ef98.setContent(html_2a22fb4a2b3b492989b5c708862c74eb);
+            
+
+            circle_marker_18de57c89c554ac3b4b903e843688284.bindPopup(popup_46a8b4ac08d841bda2641b6508d0ef98);
+
+            
+        
+    
+            var circle_marker_2e4df14acf474444afae987b48e4b732 = L.circleMarker(
+                [-7.16292054,39.50520515],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 7.6,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_97aae1bfe06e4fcd890e46cb055af6f3 = L.popup({maxWidth: '300'});
+
+            
+                var html_78230f8cc9404c389cb71815cbccca6b = $('<div id="html_78230f8cc9404c389cb71815cbccca6b" style="width: 100.0%; height: 100.0%;">Nombre de puits: 805 Region: Dar es Salaam</div>')[0];
+                popup_97aae1bfe06e4fcd890e46cb055af6f3.setContent(html_78230f8cc9404c389cb71815cbccca6b);
+            
+
+            circle_marker_2e4df14acf474444afae987b48e4b732.bindPopup(popup_97aae1bfe06e4fcd890e46cb055af6f3);
+
+            
+        
+    
+            var circle_marker_c4eafdbba03b4051bb6ed7eb74bb87fc = L.circleMarker(
+                [-7.16292054,39.50520515],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 6.88,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_465d49f26d3f42058373804f95efe881 = L.popup({maxWidth: '300'});
+
+            
+                var html_c507e80f382e496f96cd20fdedd4a17f = $('<div id="html_c507e80f382e496f96cd20fdedd4a17f" style="width: 100.0%; height: 100.0%;">Population: 193879 Region: Dar es Salaam</div>')[0];
+                popup_465d49f26d3f42058373804f95efe881.setContent(html_c507e80f382e496f96cd20fdedd4a17f);
+            
+
+            circle_marker_c4eafdbba03b4051bb6ed7eb74bb87fc.bindPopup(popup_465d49f26d3f42058373804f95efe881);
+
+            
+        
+    
+            var circle_marker_26c16ac1e66340e08ddca93e913c4f8b = L.circleMarker(
+                [-6.09357391,37.16217132],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 24.06,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_834161870aa1416a8a82f3976c4f33b3 = L.popup({maxWidth: '300'});
+
+            
+                var html_2e04629efb404682b107f0bb76080eba = $('<div id="html_2e04629efb404682b107f0bb76080eba" style="width: 100.0%; height: 100.0%;">Nombre de puits: 2547 Region: Tanga</div>')[0];
+                popup_834161870aa1416a8a82f3976c4f33b3.setContent(html_2e04629efb404682b107f0bb76080eba);
+            
+
+            circle_marker_26c16ac1e66340e08ddca93e913c4f8b.bindPopup(popup_834161870aa1416a8a82f3976c4f33b3);
+
+            
+        
+    
+            var circle_marker_a2b551b8cb41411db83cdde0b518d9d9 = L.circleMarker(
+                [-6.09357391,37.16217132],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 22.31,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_970fd4880f6d4f8889805301d6e3a748 = L.popup({maxWidth: '300'});
+
+            
+                var html_cff0d46ae14c4053b1c49f97bdc35cbd = $('<div id="html_cff0d46ae14c4053b1c49f97bdc35cbd" style="width: 100.0%; height: 100.0%;">Population: 628482 Region: Tanga</div>')[0];
+                popup_970fd4880f6d4f8889805301d6e3a748.setContent(html_cff0d46ae14c4053b1c49f97bdc35cbd);
+            
+
+            circle_marker_a2b551b8cb41411db83cdde0b518d9d9.bindPopup(popup_970fd4880f6d4f8889805301d6e3a748);
+
+            
+        
+    
+            var circle_marker_a4753bf1f48d4142aa5e17a920265b45 = L.circleMarker(
+                [-9.70096514,33.91551046],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 43.81,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_8ffc46e2dc354a12bf9573c93219b918 = L.popup({maxWidth: '300'});
+
+            
+                var html_b149f15b1f5f430fa8d570f112c77fcd = $('<div id="html_b149f15b1f5f430fa8d570f112c77fcd" style="width: 100.0%; height: 100.0%;">Nombre de puits: 4639 Region: Mbeya</div>')[0];
+                popup_8ffc46e2dc354a12bf9573c93219b918.setContent(html_b149f15b1f5f430fa8d570f112c77fcd);
+            
+
+            circle_marker_a4753bf1f48d4142aa5e17a920265b45.bindPopup(popup_8ffc46e2dc354a12bf9573c93219b918);
+
+            
+        
+    
+            var circle_marker_78f199ee004f47a78fabd78ac126a36d = L.circleMarker(
+                [-9.70096514,33.91551046],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 0.0,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_4f32d7225ecd401892750bc99da37358 = L.popup({maxWidth: '300'});
+
+            
+                var html_3d7dc554143e4c84a775ba2bed596394 = $('<div id="html_3d7dc554143e4c84a775ba2bed596394" style="width: 100.0%; height: 100.0%;">Population: 0 Region: Mbeya</div>')[0];
+                popup_4f32d7225ecd401892750bc99da37358.setContent(html_3d7dc554143e4c84a775ba2bed596394);
+            
+
+            circle_marker_78f199ee004f47a78fabd78ac126a36d.bindPopup(popup_4f32d7225ecd401892750bc99da37358);
+
+            
+        
+    
+            var circle_marker_cd70931d96a14b3f9f90caa00e130288 = L.circleMarker(
+                [-10.52471048,34.62015406],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50.0,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_24e9503d805d4d088445f51aa36a5c15 = L.popup({maxWidth: '300'});
+
+            
+                var html_68a49e32ff1e4a348db02266321ab816 = $('<div id="html_68a49e32ff1e4a348db02266321ab816" style="width: 100.0%; height: 100.0%;">Nombre de puits: 5294 Region: Iringa</div>')[0];
+                popup_24e9503d805d4d088445f51aa36a5c15.setContent(html_68a49e32ff1e4a348db02266321ab816);
+            
+
+            circle_marker_cd70931d96a14b3f9f90caa00e130288.bindPopup(popup_24e9503d805d4d088445f51aa36a5c15);
+
+            
+        
+    
+            var circle_marker_a759adda801942a791beb4a50b2b1fbb = L.circleMarker(
+                [-10.52471048,34.62015406],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17.72,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_a4e6bb33da29411fa70320073dfca247 = L.popup({maxWidth: '300'});
+
+            
+                var html_b304a412ccb649709f6475ed5b620aa0 = $('<div id="html_b304a412ccb649709f6475ed5b620aa0" style="width: 100.0%; height: 100.0%;">Population: 499247 Region: Iringa</div>')[0];
+                popup_a4e6bb33da29411fa70320073dfca247.setContent(html_b304a412ccb649709f6475ed5b620aa0);
+            
+
+            circle_marker_a759adda801942a791beb4a50b2b1fbb.bindPopup(popup_a4e6bb33da29411fa70320073dfca247);
+
+            
+        
+    
+            var circle_marker_a84339735fd7476ea043b51045304cc6 = L.circleMarker(
+                [-4.60694013,37.99769612],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 41.36,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_09b44b2da9924848b512a90661e869d5 = L.popup({maxWidth: '300'});
+
+            
+                var html_65e2c92b7e4442cfa51887e4cb137491 = $('<div id="html_65e2c92b7e4442cfa51887e4cb137491" style="width: 100.0%; height: 100.0%;">Nombre de puits: 4379 Region: Kilimanjaro</div>')[0];
+                popup_09b44b2da9924848b512a90661e869d5.setContent(html_65e2c92b7e4442cfa51887e4cb137491);
+            
+
+            circle_marker_a84339735fd7476ea043b51045304cc6.bindPopup(popup_09b44b2da9924848b512a90661e869d5);
+
+            
+        
+    
+            var circle_marker_2fbda23336f44c56924913b7eb8407ac = L.circleMarker(
+                [-4.60694013,37.99769612],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 16.44,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_e690eba4adf94fb6973f1b8a41521206 = L.popup({maxWidth: '300'});
+
+            
+                var html_fbbee1b964c046fcb4582a3c018a33a4 = $('<div id="html_fbbee1b964c046fcb4582a3c018a33a4" style="width: 100.0%; height: 100.0%;">Population: 463070 Region: Kilimanjaro</div>')[0];
+                popup_e690eba4adf94fb6973f1b8a41521206.setContent(html_fbbee1b964c046fcb4582a3c018a33a4);
+            
+
+            circle_marker_2fbda23336f44c56924913b7eb8407ac.bindPopup(popup_e690eba4adf94fb6973f1b8a41521206);
+
+            
+        
+    
+            var circle_marker_54a8f0f2ef0c4d9d8a82ee9b5face524 = L.circleMarker(
+                [-11.36697424,38.44130523],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 16.34,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_4dd8d8c2c45c4e50b7d13fcca319692f = L.popup({maxWidth: '300'});
+
+            
+                var html_c03313d81a2a4b6896efae91f76d6514 = $('<div id="html_c03313d81a2a4b6896efae91f76d6514" style="width: 100.0%; height: 100.0%;">Nombre de puits: 1730 Region: Mtwara</div>')[0];
+                popup_4dd8d8c2c45c4e50b7d13fcca319692f.setContent(html_c03313d81a2a4b6896efae91f76d6514);
+            
+
+            circle_marker_54a8f0f2ef0c4d9d8a82ee9b5face524.bindPopup(popup_4dd8d8c2c45c4e50b7d13fcca319692f);
+
+            
+        
+    
+            var circle_marker_871a64e80cd6495da8f568a0d1ba1d31 = L.circleMarker(
+                [-11.36697424,38.44130523],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 16.42,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_7679816c7f07427d9ea0f761d1e2967f = L.popup({maxWidth: '300'});
+
+            
+                var html_177f1ec4b31e4e78904292ac340ffa56 = $('<div id="html_177f1ec4b31e4e78904292ac340ffa56" style="width: 100.0%; height: 100.0%;">Population: 462674 Region: Mtwara</div>')[0];
+                popup_7679816c7f07427d9ea0f761d1e2967f.setContent(html_177f1ec4b31e4e78904292ac340ffa56);
+            
+
+            circle_marker_871a64e80cd6495da8f568a0d1ba1d31.bindPopup(popup_7679816c7f07427d9ea0f761d1e2967f);
+
+            
+        
+    
+            var circle_marker_ebde037685f842429b4f9a9bb3da4b8e = L.circleMarker(
+                [-3.42444366,33.09599958],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 29.3,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_87dd2ccd01824c8b89d0d04607e0c459 = L.popup({maxWidth: '300'});
+
+            
+                var html_ef7544ad2b3c430a81425fb8d223cf6c = $('<div id="html_ef7544ad2b3c430a81425fb8d223cf6c" style="width: 100.0%; height: 100.0%;">Nombre de puits: 3102 Region: Mwanza</div>')[0];
+                popup_87dd2ccd01824c8b89d0d04607e0c459.setContent(html_ef7544ad2b3c430a81425fb8d223cf6c);
+            
+
+            circle_marker_ebde037685f842429b4f9a9bb3da4b8e.bindPopup(popup_87dd2ccd01824c8b89d0d04607e0c459);
+
+            
+        
+    
+            var circle_marker_19ea1d0411ab479395a7f376ecfc846a = L.circleMarker(
+                [-3.42444366,33.09599958],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 7.19,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_c55100c418c948eebbd3b48eedaac790 = L.popup({maxWidth: '300'});
+
+            
+                var html_7a6155e3b1c44ae09375fa78eadee371 = $('<div id="html_7a6155e3b1c44ae09375fa78eadee371" style="width: 100.0%; height: 100.0%;">Population: 202610 Region: Mwanza</div>')[0];
+                popup_c55100c418c948eebbd3b48eedaac790.setContent(html_7a6155e3b1c44ae09375fa78eadee371);
+            
+
+            circle_marker_19ea1d0411ab479395a7f376ecfc846a.bindPopup(popup_c55100c418c948eebbd3b48eedaac790);
+
+            
+        
+    
+            var circle_marker_a365e998dfeb427e9f35363c575a790c = L.circleMarker(
+                [-5.41675623,29.75061904],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#F50F05",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#FCE3E8",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 26.6,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_97e3e4abd5f24e3db668a68ce9df9e9d = L.popup({maxWidth: '300'});
+
+            
+                var html_50290b9645ab4bf5adcb43804b6331bc = $('<div id="html_50290b9645ab4bf5adcb43804b6331bc" style="width: 100.0%; height: 100.0%;">Nombre de puits: 2816 Region: Kigoma</div>')[0];
+                popup_97e3e4abd5f24e3db668a68ce9df9e9d.setContent(html_50290b9645ab4bf5adcb43804b6331bc);
+            
+
+            circle_marker_a365e998dfeb427e9f35363c575a790c.bindPopup(popup_97e3e4abd5f24e3db668a68ce9df9e9d);
+
+            
+        
+    
+            var circle_marker_edf25e1467ad49888b3c18dc81d2f89e = L.circleMarker(
+                [-5.41675623,29.75061904],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#3186cc",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3186cc",
+  "fillOpacity": 0.5,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 50.0,
+  "stroke": true,
+  "weight": 3
+}
+                ).addTo(map_a06b5d82115349b0bdd405971eda60e8);
+            
+    
+            var popup_123ad7fde65e4989b559c4a9ea9b66ff = L.popup({maxWidth: '300'});
+
+            
+                var html_e6bb3e3d2c474f73a89c448cb2f8d22a = $('<div id="html_e6bb3e3d2c474f73a89c448cb2f8d22a" style="width: 100.0%; height: 100.0%;">Population: 1408681 Region: Kigoma</div>')[0];
+                popup_123ad7fde65e4989b559c4a9ea9b66ff.setContent(html_e6bb3e3d2c474f73a89c448cb2f8d22a);
+            
+
+            circle_marker_edf25e1467ad49888b3c18dc81d2f89e.bindPopup(popup_123ad7fde65e4989b559c4a9ea9b66ff);
+
+            
+        
+</script>
