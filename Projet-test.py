@@ -6,15 +6,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-# tapper ces commandes sous le terminal de pycharm pour telecharger directement les fichiers a partir de leur URL
-# -------  wget https://s3.amazonaws.com/drivendata/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv -O features.csv
-# le 2eme data set contient les étiquettes décrivant l'état des puits
-
-# tapper ces commandes sous le terminal de pycharm pour telecharger directement les fichiers a partir de leur URL
-# -------  wget https://s3.amazonaws.com/drivendata/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv -O features.csv
-# le 2eme data set contient les étiquettes décrivant l'état des puits
-
-# ---------- wget https://s3.amazonaws.com/drivendata/data/7/public/0bf8bc6e-30d0-4c50-956a-603fc693d966.csv -O labels.csv
 
 # creation d'une spark session
 sc = SparkSession.builder.master("local[*]").getOrCreate()
@@ -75,7 +66,7 @@ print(col_null)
 
 data = data.drop(*col_null)
 
-##groupping et aggregation
+# Groupping et aggregation
 # count utilise l'ordre asc
 data.groupBy('recorded_by').count().show()
 # comme on peut remarquer cette colonne contient seulement "GeoData Consultants Ltd" dupliqué dans tout les lignes
@@ -106,13 +97,15 @@ for column in str_cols[:3]:  # afficher les 3 premiers col de str_cols
     print(data.groupBy(column).count().orderBy('count', ascending=False).show())
     values_cat = data.groupBy(column).count().collect()
 
-    # si une catégorie apparaît dans la variable less_than, remplacez la catégorie par une nouvelle catégorie appelée "others"sinon, gardez la catégorie.
+    # si une catégorie apparaît dans la variable less_than, remplacez la catégorie par une nouvelle catégorie appelée
+    # "others"sinon, gardez la catégorie.
     lessthan = [x[0] for x in values_cat if x[1] < 1000]  # 1000 est arbitraire
     data = data.withColumn(column, when(col(column).isin(lessthan), 'Others').otherwise(col(column)))
     data.groupBy(column).count().orderBy('count', ascending=False).show()
 
-    # calculer les valeur manquantes dans les numeric colonnes (plus precisemment la colonne population(la poupulation autour de chaque puit)
-    # la fréquence de chaque population enregistrée et orderby la population plutôt que par la fréquence
+    # calculer les valeur manquantes dans les numeric colonnes (plus precisemment la colonne population(la
+    # poupulation autour de chaque puit) la fréquence de chaque population enregistrée et orderby la population
+    # plutôt que par la fréquence
     data.groupBy('population').count().orderBy('population').show()
 
     # on peut remplacer cette population par la moyenne population dans un district où le puits est situé.
@@ -151,9 +144,9 @@ plt.xticks(rotation=45)
 fig.savefig('result_images/show_nb_well_per_payment_type.png')
 
 # la latitude et la longitude de chaque puits sous forme de nuage de points
-# fig1, ax1 = plt.subplots(12, 8)
-# sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1, palette=color_status)
-# fig1.savefig('result_images/show_lay_long.png')
+fig1, ax1 = plt.subplots(12, 8)
+sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1, palette=color_status)
+fig1.savefig('result_images/show_lay_long.png')
 
 # histogramme avec des estimations de densité de noyau de la colonne GPS_height
 # séparer la dataframe en trois sous-ensembles, un pour chaque type de statut
@@ -169,7 +162,35 @@ sns.histplot(df[row_non_funtional][col], color='red', label='non functional', ax
 sns.histplot(df[row_repair][col], color='blue', label='functional needs repair', ax=ax2)
 fig2.savefig('result_images/show_gps_height.png')
 
-# define the world map centered around with a higher zoom level
+# Changement des valeurs nulles par 0 dans la colonne 'population'
+data.na.fill(value=0, subset=["population"])
+
+""" Nombre de puits par région et par statut"""
+data_puits_region = data.select("status_group", "region")
+data_puits_region_df = data_puits_region.toPandas()
+
+color_status = {'functional': 'green', 'non functional': 'red', 'functional needs repair': 'blue'}
+fig_well_region, ax = plt.subplots(figsize=(12, 8))
+sns.countplot(x='region', hue='status_group', data=data_puits_region_df, ax=ax, palette=color_status)
+plt.xticks(rotation=45)
+fig_well_region.savefig('result_images/well_per_region.png')
+
+""" Nombre de construction de puits par année """
+
+cons_puit_per_year = data.groupBy("construction_year").agg(count("construction_year").alias("nb_construction"))
+# Tri de la colonne 'nb_construction' par ordre croissant
+cons_puit_per_year = cons_puit_per_year.sort("construction_year")
+cons_puit_per_year.show()
+
+# Transformation du type de la colonne 'construction_year' en string pour un meilleur affichage sur le graphe
+cons_puit_per_year_str = cons_puit_per_year.withColumn('construction_year', col('construction_year').cast(StringType()))
+# Converstion de la dataframe en dataframe Pandas
+cons_puit_per_year_df = cons_puit_per_year_str.toPandas()
+cons_puit_per_year_df.plot(x="construction_year", y="nb_construction", figsize=(15, 10))
+plt.savefig('result_images/well_contruct_over_year.png')
+
+""" Define the world map centered around Tanzania with a zoom level """
+
 map_draw = folium.Map(location=[-3.852983, 36.756231], tiles='Stamen Toner', zoom_start=11.5)
 
 # loop through the 100 crimes and add each to the incidents feature group
@@ -195,7 +216,21 @@ for index, row in df[df['longitude'].notnull()].iterrows():
 # display world map
 map_draw.save("map_draw.html")
 
-""" Analysis on population per region """
-data = data.na.fill(value=0, subset=["population"])
-pop_data = data.groupBy("status_group", "region").agg(sum("population").alias("population_total"))
-pop_data.show(5)
+"""" Nombre total de puits par region """
+
+data_region_puit = data.groupBy("region").agg(count("status_group").alias('nb_puits'))
+data_region_puit.show()
+
+""" Dataframe du nombre total d'habitants par région """
+data_region_pop = data.groupBy("region").agg(sum("population").alias('population_total'))
+data_region_pop.show()
+
+""" Jointure de la dataframe du nombre total de population par région et celle du nombre total de puits par région 
+Affichage du nombre total de puits et de populations par région """
+
+data_reg_pop_puit = data_region_pop.join(data_region_puit, on="region")
+data_reg_pop_puit.show()
+data_reg_pop_puit_df = data_reg_pop_puit.toPandas()
+
+data_reg_pop_puit_df.plot.bar(x='region', y=["population_total", "nb_puits"], rot=90, figsize=(15, 50))
+plt.savefig('result_images/population_well_total_per_region.png')
