@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-
 # tapper ces commandes sous le terminal de pycharm pour telecharger directement les fichiers a partir de leur URL
 # -------  wget https://s3.amazonaws.com/drivendata/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv -O features.csv
 # le 2eme data set contient les étiquettes décrivant l'état des puits
@@ -29,7 +28,7 @@ feature.printSchema()
 label.printSchema()
 
 # Fusionner les deux dataset
-data = feature.join(label, on=("id"))
+data = feature.join(label, on="id")
 print(data.count())
 data.printSchema()
 
@@ -152,12 +151,12 @@ plt.xticks(rotation=45)
 fig.savefig('result_images/show_nb_well_per_payment_type.png')
 
 # la latitude et la longitude de chaque puits sous forme de nuage de points
-fig1, ax1 = plt.subplots(12, 8)
-sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1, palette=color_status)
-fig1.savefig('result_images/show_lay_long.png')
+# fig1, ax1 = plt.subplots(12, 8)
+# sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1, palette=color_status)
+# fig1.savefig('result_images/show_lay_long.png')
 
 # histogramme avec des estimations de densité de noyau de la colonne GPS_height
-# séparer le datframe en trois sous-ensembles, un pour chaque type de statut
+# séparer la dataframe en trois sous-ensembles, un pour chaque type de statut
 row_funtional = (df['status_group'] == 'functional')
 row_non_funtional = (df['status_group'] == 'non functional')
 row_repair = (df['status_group'] == 'functional needs repair')
@@ -195,3 +194,8 @@ for index, row in df[df['longitude'].notnull()].iterrows():
 
 # display world map
 map_draw.save("map_draw.html")
+
+""" Analysis on population per region """
+data = data.na.fill(value=0, subset=["population"])
+pop_data = data.groupBy("status_group", "region").agg(sum("population").alias("population_total"))
+pop_data.show(5)

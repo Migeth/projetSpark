@@ -34,7 +34,7 @@ spk_df_clean.groupby("cp", "device_portal_format").count().show()
 
 spk_pd_df_clean = spk_df_clean.toPandas()
 
-
+spk_pd_df_clean.info()
 ax1 = spk_pd_df_clean['duration'].plot(kind='hist', bins=25, facecolor='lightblue')
 ax1.set_title('duration__bytesin ')
 ax1.set_xlabel('bytesin')
