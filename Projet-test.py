@@ -81,6 +81,7 @@ print(col_null)
 data = data.drop(*col_null)
 
 
+
 ##groupping et aggregation
 #count utilise l'ordre asc
 data.groupBy('recorded_by').count().show()
