@@ -65,8 +65,9 @@ print(col_null)
 
 data = data.drop(*col_null)
 
-# Groupping et aggregation
-# count utilise l'ordre asc
+##groupping et aggregation
+#count utilise l'ordre asc
+
 data.groupBy('recorded_by').count().show()
 # comme on peut remarquer cette colonne contient seulement "GeoData Consultants Ltd" dupliqué dans tout les lignes
 
