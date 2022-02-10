@@ -144,9 +144,9 @@ plt.xticks(rotation=45)
 fig.savefig('result_images/show_nb_well_per_payment_type.png')
 
 # la latitude et la longitude de chaque puits sous forme de nuage de points
-fig1, ax1 = plt.subplots(12, 8)
-sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1, palette=color_status)
-fig1.savefig('result_images/show_lay_long.png')
+fig, ax = plt.subplots(figsize=(12, 8))
+sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax, palette=color_status)
+fig.savefig('result_images/show_lay_long.png')
 
 # histogramme avec des estimations de densité de noyau de la colonne GPS_height
 # distplot pour chaque subset utilisant la colonne GPS_height et le meme code de couleur
