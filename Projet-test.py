@@ -1,9 +1,8 @@
 import folium
 from pyspark.sql import SparkSession, Window
-from pyspark.sql.functions import isnan, when, count, col, lit, trim, avg, ceil, row_number
+from pyspark.sql.functions import isnan, when, count, col, lit, trim, avg, ceil, sum, max, min, avg, row_number
 from pyspark.sql.types import StringType
 import matplotlib.pyplot as plt
-import pandas as pd
 import seaborn as sns
 
 
@@ -149,18 +148,13 @@ sns.scatterplot(data=df, x='longitude', y='latitude', hue='status_group', ax=ax1
 fig1.savefig('result_images/show_lay_long.png')
 
 # histogramme avec des estimations de densité de noyau de la colonne GPS_height
-# séparer la dataframe en trois sous-ensembles, un pour chaque type de statut
-row_funtional = (df['status_group'] == 'functional')
-row_non_funtional = (df['status_group'] == 'non functional')
-row_repair = (df['status_group'] == 'functional needs repair')
-
 # distplot pour chaque subset utilisant la colonne GPS_height et le meme code de couleur
+
 col = 'gps_height'
-fig2, ax2 = plt.subplots(12, 8)
-sns.histplot(df[row_funtional][col], color='green', label='functional', ax=ax2)
-sns.histplot(df[row_non_funtional][col], color='red', label='non functional', ax=ax2)
-sns.histplot(df[row_repair][col], color='blue', label='functional needs repair', ax=ax2)
-fig2.savefig('result_images/show_gps_height.png')
+fig, ax = plt.subplots()
+fig.set_size_inches(15, 10)
+sns.histplot(data=df, x='gps_height', hue='status_group', element="step", ax=ax, kde=True)
+fig.savefig('result_images/show_gps_height.png')
 
 # Changement des valeurs nulles par 0 dans la colonne 'population'
 data.na.fill(value=0, subset=["population"])
@@ -183,7 +177,7 @@ cons_puit_per_year = cons_puit_per_year.sort("construction_year")
 cons_puit_per_year.show()
 
 # Transformation du type de la colonne 'construction_year' en string pour un meilleur affichage sur le graphe
-cons_puit_per_year_str = cons_puit_per_year.withColumn('construction_year', col('construction_year').cast(StringType()))
+cons_puit_per_year_str = cons_puit_per_year.withColumn('construction_year', cons_puit_per_year['construction_year'].cast(StringType()))
 # Converstion de la dataframe en dataframe Pandas
 cons_puit_per_year_df = cons_puit_per_year_str.toPandas()
 cons_puit_per_year_df.plot(x="construction_year", y="nb_construction", figsize=(15, 10))
@@ -200,8 +194,8 @@ data_region_pop.show()
 
 """ Dataframe to get a geographic location of each region """
 data_region = data.select("region", "latitude", "longitude")
-w2 = Window.partitionBy("region").orderBy(col("latitude"), col('longitude'))
-data_reg_lat_long = data_region.withColumn("row", row_number().over(w2)).filter(col("row") == 1).drop("row")
+w2 = Window.partitionBy("region").orderBy(["latitude", "longitude"])
+data_reg_lat_long = data_region.withColumn("row", row_number().over(w2)).filter("row == 1").drop("row")
 data_reg_lat_long.show()
 
 """ Jointure de la dataframe du nombre total de population par région et celle du nombre total de puits par région 
@@ -213,7 +207,7 @@ data_reg_pop_puit_df = data_reg_pop_puit.toPandas()
 data_reg_pop_puit_df.plot.bar(x='region', y=["population_total", "nb_puits"], rot=90, figsize=(15, 50))
 plt.savefig('result_images/population_well_total_per_region.png')
 
-# define the world map centered around with a higher zoom level
+# define the world map centered around Tanzania with a higher zoom level
 map_draw1 = folium.Map(location=[data_reg_pop_puit_df['latitude'].mean(), data_reg_pop_puit_df['longitude'].mean()],
                        tiles='Stamen Toner', zoom_start=7)
 
